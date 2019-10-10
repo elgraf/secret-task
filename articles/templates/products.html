@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    {% for product in products %}
+    <div class="card m-2" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name|title}}</h5>
+            <p class="card-text">Here should be the item description but I don't like to fill the site with content.</p>
+
+            <p class="card-text"><small class="text"><a href="{{product.id}}/chart/">View price history</a></small></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{product.current_modifier}}</li>
+            <li class="list-group-item">{{product.current_price}}</li>
+            <li class="list-group-item">{{product.price}}</li>
+        </ul>
+        <div class="card-body">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addToWishList" data-product_name="{{product.name|title}}" data-product_id={{product.id}}>To WishList</button>
+            <button type="button" class="btn btn-danger">Buy It</button>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- WishList Modal -->
+    <div class="modal fade" id="addToWishList" tabindex="-1" role="dialog" aria-labelledby="addToWishListLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addToWishListLabel"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="form-inline m-2 my-lg-0" id="addNewWishListForm">
+              <div>
+                <input name="name" class="form-control mr-sm-2  is-valid" type="text" placeholder="Wish list name">
+                <div class="invalid-feedback">
+                </div>
+                <div class="valid-feedback">
+                </div>
+              </div>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">New List</button>
+            </form>
+            <div id="wishLists">
+              {% for wish_list in wish_lists %}
+              <button name="list_id" value={{wish_list.id}} type="button" class="btn btn-warning m-2 wish-list-button" data-toggle="modal" data-dismiss="modal">{{wish_list.name}}</button>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<script>
+  var csrf_token = "{{ csrf_token }}";
+</script>
+<script src="{% static 'js/products.js' %}"></script>
+{% endblock %}

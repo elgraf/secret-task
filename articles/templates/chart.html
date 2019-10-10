@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/moment@latest/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+<div>
+  <p>
+    <label for="amount">Range:</label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+  </p>
+  <div style="width: 1600px" id="slider-range"></div>
+  <br>
+</div>
+
+<div>
+  <canvas id="priceChart" width="1600" height="800"></canvas>
+</div>
+<script>
+	var begin = moment('2014-11-28')
+	var end = moment('2020-10-04')
+  var dumped_data = [
+  `{% autoescape off %}{{ chart }}{% endautoescape %}`,
+];
+</script>
+<script src="{% static 'js/chart.js' %}"></script>
+{% endblock %}

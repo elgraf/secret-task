@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    {% for product in products %}
+    <div class="card m-2" style="width: 50rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name|title}}</h5>
+            <p class="card-text"><small class="text"><a href="{{product.id}}/chart/">Price history</a></small></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{product.current_price}}</li>
+        </ul>
+    </div>
+    {% endfor %}
+
+<script>
+  var csrf_token = "{{ csrf_token }}";
+</script>
+{% endblock %}

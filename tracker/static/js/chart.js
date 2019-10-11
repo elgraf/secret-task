@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	//Chart.scaleService.registerScaleType('modifier', MyScale, defaultConfigObject);
 	var date_unit = function(){
 		if ((end - begin)/86400000 > 90) { // days
 			return 'month';
@@ -12,31 +11,31 @@ $(document).ready(function() {
 		data: {
 			labels: [],
 			datasets: [{
-				lineTension: 0,           
+
 				data: [],
 				label: "Price",
 				borderWidth: 2,
-				borderColor: "#3e95cd",
-				fill: true,
+				borderColor: "red",
+
 				pointRadius: 3
 			},
 			{
-				lineTension: 0,           
+
 				data: [],
 				label: "Category modifier",
 				showLine: true,
 				borderWidth: 2,
-				borderColor: "red",
+				borderColor: "yellow",
 				fill: false,
 				pointRadius: 3
 			},
 			{
-				lineTension: 0,           
+
 				data: [],
 				label: "Product modifier",
 				showLine: true,
 				borderWidth: 2,
-				borderColor: "orange",
+				borderColor: "black",
 				fill: false,
 				pointRadius: 3
 			}]

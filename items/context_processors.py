@@ -1,6 +1,10 @@
 
-from articles.forms import (ProductPriceHistoryForm, CategoryPriceHistoryForm,
-                            CategoryForm, ProductForm, )
+from items.forms import (
+    ProductPriceHistoryForm,
+    CategoryPriceHistoryForm,
+    CategoryForm,
+    ProductForm
+)
 
 
 def navbarforms(request):

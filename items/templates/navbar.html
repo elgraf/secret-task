@@ -1,24 +1,18 @@
 {% load crispy_forms_tags %}
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">DJANGO-Shop</a>
+<nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-light text-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       {% for form in forms %}
       <li class="nav-item m-2 my-lg-0">
-          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#{{form.selfname}}">{{form.description}}</button>
+          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#{{form.selfname}}">{{form.description}}</button>
       </li>
       {% endfor %}
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
@@ -27,7 +21,7 @@
 <div class="modal fade" id="{{form.selfname}}" tabindex="-1" role="dialog" aria-labelledby="{{form.selfname}}Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form action="/articles/" class="{{form.send_by}}" method="post">
+      <form action="/items/" class="{{form.send_by}}" method="post">
         <div class="modal-header">
           <h5 class="modal-title" id="{{form.selfname}}Label">{{form.description}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">

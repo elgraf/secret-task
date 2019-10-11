@@ -15,7 +15,7 @@
     <label for="amount">Range:</label>
     <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
   </p>
-  <div style="width: 1600px" id="slider-range"></div>
+  <div style="width: 2800px" id="slider-range"></div>
   <br>
 </div>
 
@@ -23,8 +23,8 @@
   <canvas id="priceChart" width="1600" height="800"></canvas>
 </div>
 <script>
-	var begin = moment('2014-11-28')
-	var end = moment('2020-10-04')
+	var begin = moment('01-01-2010')
+	var end = moment('01-01-2020')
   var dumped_data = [
   `{% autoescape off %}{{ chart }}{% endautoescape %}`,
 ];

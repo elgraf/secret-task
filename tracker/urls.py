@@ -1,4 +1,4 @@
-"""shop URL Configuration
+"""tracker URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='articles/', permanent=False)),
-    path('articles/', include('articles.urls')),
+    path('', RedirectView.as_view(url='items/', permanent=False)),
+    path('items/', include('items.urls')),
     path('accounts/', include('django.contrib.auth.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,14 +1,17 @@
-from django.forms import ModelForm, DateField, DateInput
+from django.forms import ModelForm
 from django.forms import ValidationError
 
-from shop.settings import DATE_INPUT_FORMATS
-from articles.models import (Category, Product, ProductPriceHistory,
-                             CategoryPriceHistory)
+from items.models import (
+    Category,
+    Product,
+    ProductPriceHistory,
+    CategoryPriceHistory
+)
 
 
 class CategoryForm(ModelForm):
-    btn_name = "Create"
-    description = "Add new Category"
+    btn_name = "Add"
+    description = "Add new category"
 
     def __init__(self, *args, **kwargs):
         kwargs.pop('user', None)
@@ -24,8 +27,8 @@ class CategoryForm(ModelForm):
 
 
 class ProductForm(ModelForm):
-    btn_name = "Create"
-    description = "Add new Product"
+    btn_name = "Add"
+    description = "Add new product"
 
     @property
     def selfname(self):
@@ -40,13 +43,9 @@ class ProductForm(ModelForm):
         super(ProductForm, self).__init__(*args, **kwargs)
 
 
-class PriceHystoryAbstractForm(ModelForm):
-    pass
-
-
 class ProductPriceHistoryForm(ModelForm):
-    btn_name = "Change"
-    description = "Change product price"
+    btn_name = "Modify"
+    description = "Modify product price"
 
     @property
     def selfname(self):
@@ -54,7 +53,7 @@ class ProductPriceHistoryForm(ModelForm):
 
     class Meta:
         model = ProductPriceHistory
-        fields = ('product', 'start', 'end', 'modifier')
+        fields = ('product', 'start', 'end', 'alter')
 
     def __init__(self, *args, **kwargs):
         self._user = kwargs.pop('user', None)
@@ -64,9 +63,7 @@ class ProductPriceHistoryForm(ModelForm):
         inst = super(ProductPriceHistoryForm, self).save(commit=False)
         inst.user = self._user
         if inst.end and inst.start >= inst.end:
-            raise ValidationError("Satart date is grater than end")
-        if inst.modifier <= 0:
-            raise ValidationError("Not allowed, modifier value must be > 0")
+            raise ValidationError("Start date is greater than end date.")
         if commit:
             inst.save()
             self.save_m2m()
@@ -74,12 +71,12 @@ class ProductPriceHistoryForm(ModelForm):
 
 
 class CategoryPriceHistoryForm(ModelForm):
-    btn_name = "Change"
-    description = "Change cotegory price"
+    btn_name = "Modify"
+    description = "Modify category price"
 
     class Meta:
         model = CategoryPriceHistory
-        fields = ('category', 'start', 'end', 'modifier')
+        fields = ('category', 'start', 'end', 'alter')
 
     @property
     def selfname(self):
@@ -93,9 +90,7 @@ class CategoryPriceHistoryForm(ModelForm):
         inst = super(CategoryPriceHistoryForm, self).save(commit=False)
         inst.user = self._user
         if inst.end and inst.start >= inst.end:
-            raise ValidationError("Satart date is grater than end")
-        if inst.modifier <= 0:
-            raise ValidationError("Not allowed, modifier value must be > 0")
+            raise ValidationError("Start date is greater than end date.")
         if commit:
             inst.save()
             self.save_m2m()

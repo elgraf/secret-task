@@ -1,4 +1,4 @@
-"""shop URL Configuration
+"""tracker URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,13 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from articles.views import (ProductsView, CategoryView, CategoryChartView,
-                            ProductChartView)
+from items.views import (
+    ItemsView,
+    CategoryView,
+    CategoryChartView,
+    ItemsChartView
+)
 
 
 urlpatterns = [
     path('', CategoryView.as_view()),
-    path(r'<str:category>/', ProductsView.as_view()),
+    path(r'<str:category>/', ItemsView.as_view()),
     path('<str:category>/chart/', CategoryChartView.as_view()),
-    path('<str:category>/<int:product_id>/chart/', ProductChartView.as_view()),
+    path('<str:category>/<int:product_id>/chart/', ItemsChartView.as_view()),
 ]

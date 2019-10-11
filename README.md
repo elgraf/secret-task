@@ -1,18 +1,19 @@
-# Django-shop
-DJANGO-Shop
+# :moneybag: PriceIT
 
-Se da lista de produse. Fiecare utilizator isi poate crea mai multe liste cu preferinte de produse (wishlists)
-Fiecare utilizator poate adauga un produs in unul din listele cu preferinte
-Pentru fiecare produs din lista, trebuie sa fie aratat cati utilizatori unici, au dorit acest produs (adaugat in wish list).
+## :hotsprings: Dependencies
+* [Python 3.7.2](https://www.python.org/downloads/release/python-360/)
+* [PosgreSQL 11.4](https://www.postgresql.org/)
+* [Django 2.2.6](https://www.djangoproject.com/)
 
-Pretul produselor de obicei este dictat de situatia din piata.
-Si avem nevoie de un instrument, care ne va permite sa monitorizam pretul de comercializare a produselor, pentru fiecare zi in parte.
+## Development
 
-Utilizatorul poate adauga un produs in magazinul sau.
-Fiecare produs are un pret de comercializare.
-Utilizatorul poate modifica pretul de comercializare din ziua curenta pentru o perioada nedefinita.
-Utilizatorul la fel poate modifica pretul pentru un interval de timp (o zi sau mai multe) din trecut, de cate ori doreste.
+### :construction: Steps to launch the development environment:
+1. `docker-compose build && docker-compose up`
+2. open [http://localhost:5000](hhttp://0.0.0.0:8000)
+3. Login with username:test password:test
 
-Trebuie returnat pretul pentru un anumit produs pentru o anumita perioada pe fiecare zi.
+## References
 
-Istoricul modificarilor trebuie pastrat. Produsele sunt grupate in categorii de produse, si utilizatorul poate modifica atat pretul pentru toata categoria, cat si pentru un item aparte, conform conditiilor anterioare.
+* [Chart JS](https://www.chartjs.org/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Dumping dict to ChartJS](https://www.patricksoftwareblog.com/creating-charts-with-chart-js-in-a-flask-application/)

@@ -9,7 +9,7 @@
 
 ### :construction: Steps to launch the development environment:
 1. `docker-compose build && docker-compose up`
-2. open [http://localhost:5000](hhttp://0.0.0.0:8000)
+2. open [http://0.0.0.0:8000](http://0.0.0.0:8000)
 3. Login with username:test password:test
 
 ## References

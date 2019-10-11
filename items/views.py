@@ -12,7 +12,12 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
 
-
+from items.forms import (
+    CategoryForm,
+    CategoryPriceHistoryForm,
+    ProductForm,
+    ProductPriceHistoryForm,
+)
 from items.models import (
     Category,
     CategoryPriceHistory,

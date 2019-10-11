@@ -17,3 +17,8 @@
 * [Chart JS](https://www.chartjs.org/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Dumping dict to ChartJS](https://www.patricksoftwareblog.com/creating-charts-with-chart-js-in-a-flask-application/)
+
+
+# TBD
+* Tests :))
+* django-rest
